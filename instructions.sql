@@ -46,10 +46,6 @@ CREATE OR REPLACE TABLE raw_movies (
   genres STRING
 );
 
-CREATE STAGE netflixstage
-  URL='s3://netflixmoviedata'
-  CREDENTIALS=(AWS_KEY_ID=' ' AWS_SECRET_KEY=' ');
-
 COPY INTO raw_movies
 FROM '@netflixstage/movies.csv'
 FILE_FORMAT = (TYPE = 'CSV' SKIP_HEADER = 1 FIELD_OPTIONALLY_ENCLOSED_BY = '"');
