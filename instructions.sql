@@ -75,12 +75,7 @@ FROM '@netflixstage/tags.csv'
 FILE_FORMAT = (TYPE = 'CSV' SKIP_HEADER = 1 FIELD_OPTIONALLY_ENCLOSED_BY = '"')
 ON_ERROR = 'CONTINUE';
 
--- Load raw_genome_scores
-CREATE OR REPLACE TABLE raw_genome_scores (
-  movieId INTEGER,
-  tagId INTEGER,
-  relevance FLOAT
-);
+
 
 COPY INTO raw_genome_scores
 FROM '@netflixstage/genome-scores.csv'
